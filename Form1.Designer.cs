@@ -79,7 +79,7 @@
             // 
             this.lblRecord.AutoSize = true;
             this.lblRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecord.Location = new System.Drawing.Point(263, 23);
+            this.lblRecord.Location = new System.Drawing.Point(12, 21);
             this.lblRecord.Name = "lblRecord";
             this.lblRecord.Size = new System.Drawing.Size(0, 16);
             this.lblRecord.TabIndex = 18;
@@ -182,7 +182,6 @@
             // 
             // btnTimes
             // 
-            this.btnTimes.CausesValidation = false;
             this.btnTimes.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Bold);
             this.btnTimes.Location = new System.Drawing.Point(136, 23);
             this.btnTimes.Name = "btnTimes";

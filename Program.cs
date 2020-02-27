@@ -19,21 +19,6 @@ namespace ModCal
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 
-
-            //    int sum = 0;
-            //    List<int> num = new List<int>();
-
-            //for (int i = 0; i < 5; i++)
-            //    {
-            //    string myval = "79";
-
-            //        num.Add(int.Parse(myval));
-
-            //        sum += int.Parse(myval);  
-
-            //    }
-            //Console.Read();
-
         }
     }
 }
