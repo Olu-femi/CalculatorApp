@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ModCal
@@ -17,146 +11,286 @@ namespace ModCal
             InitializeComponent();
         }
 
-        private void button_Click(object sender, EventArgs e)
+        //num1 is the first value entered and opr is the operation to be performed for calculation
+        double num1;
+        string opr;
+
+        private void del_Click(object sender, EventArgs e)
+        { //this function is used as backspace to allow the number to the extreme right be deleted from a string of values
+            string n = txtbxdisply.Text;
+
+            if (n.Length >= 1) //checks the length of the strings in the textbox
+            {
+                n = n.Substring(0, n.Length - 1);
+            }
+            else
+            {
+                n = "0";
+            }
+
+            txtbxdisply.Text = n; //this displays the string of values left after deleting from the string of values
+        }
+
+        private void off_Click(object sender, EventArgs e)
+        {
+            //Function to close the calculator application
+            MessageBox.Show("cal is closing");
+
+            this.Close();
+        }
+
+        public void makeMultipleDigits(object sender)
         {
             Button thisButton = (Button)sender;
 
-            if (!String.IsNullOrWhiteSpace(txtboxDisplay.Text) || String.IsNullOrWhiteSpace(txtboxDisplay.Text))
+            List<double> n = new List<double>();
+            var decVal = thisButton.Text;
+            n.Add(double.Parse(decVal));
+            txtbxdisply.Text = txtbxdisply.Text + decVal;
+        }
+        public void lblDisplay(object sender)
+        {
+            Button pressButton = (Button)sender;
+            List<string> lbl = new List<string>();
+            string val = pressButton.Text;
+            lbl.Add(val);
+            lblValue.Text = lblValue.Text + val;
+        }
+
+        private void operation_Click(object sender, EventArgs e)
+        {
+            Button thisButton = (Button)sender;
+            opr = thisButton.Text;
+            lblDisplay(thisButton);
+            switch (opr)
             {
-                int sum = 0;
-                List<int> num = new List<int>();
+                case "+":
+                    num1 = double.Parse(txtbxdisply.Text);
+                    txtbxdisply.Text = "0";
+                    break;
+                case "/":
+                    num1 = double.Parse(txtbxdisply.Text);
+                    txtbxdisply.Text = "0";
+                    break;
+                case "*":
+                    num1 = double.Parse(txtbxdisply.Text);
+                    txtbxdisply.Text = "0";
+                    break;
+                case "-":
+                    num1 = double.Parse(txtbxdisply.Text);
+                    txtbxdisply.Text = "0";
+                    break;
+                case "sqr":
+                    num1 = double.Parse(txtbxdisply.Text);
+                    txtbxdisply.Text = $"{txtbxdisply.Text}";
+                    break;
+                case "sqrt":
+                    num1 = double.Parse(txtbxdisply.Text);
+                    txtbxdisply.Text = $"{txtbxdisply.Text}";
+                    break;
+                case "x^":
+                    num1 = double.Parse(txtbxdisply.Text);
+                    txtbxdisply.Text = "0";
+                    break;
+            }
+        }
 
-                string myval = thisButton.Text;
+        private void digit_Click(object sender, EventArgs e)
+        {
 
-                if(thisButton.Name == "btnTimes" || thisButton.Name == "btnMinus" || thisButton.Name == "btnSum" || thisButton.Name == "btnEquals")
+            Button thisButton = (Button)sender;
+
+            if (txtbxdisply.Text != null || txtbxdisply.Text == "0")
+            {
+                lblDisplay(thisButton);
+                switch (thisButton.Name)
                 {
-                    switch (thisButton.Name)
-                    {
-                        case "btnTimes":
+                    case "btn1":
+                        if (txtbxdisply.Text.Length >= 1 && txtbxdisply.Text != "0")
+                        {
+                            makeMultipleDigits(thisButton);
+                        }
+                        else
+                        {
+                            txtbxdisply.Text = btn1.Text;
 
-                            lblRecord.Text +=$"  {thisButton.Text}  ";
-                            
-                            
-                            break;
-                        case "btnDivide":
-                            lblRecord.Text += $"  {thisButton.Text}  ";
+                        }
+                        break;
 
-                            break;
-                        case "btnMinus":
-                            lblRecord.Text += $"  {thisButton.Text}  ";
+                    case "btn2":
+                        if (txtbxdisply.Text.Length >= 1 && txtbxdisply.Text != "0")
+                        {
+                            makeMultipleDigits(thisButton);
+                        }
+                        else
+                        {
+                            txtbxdisply.Text = btn2.Text;
+                        }
+                        break;
 
-                            break;
-                        case "btnSum":
-                            lblRecord.Text += $"  {thisButton.Text}  ";
+                    case "btn3":
+                        if (txtbxdisply.Text.Length >= 1 && txtbxdisply.Text != "0")
+                        {
+                            makeMultipleDigits(thisButton);
+                        }
+                        else
+                        {
+                            txtbxdisply.Text = btn3.Text;
+                        }
+                        break;
 
-                            break;
-                        case "btnEquals":
-                            lblRecord.Text += $"  {thisButton.Text}  ";
+                    case "btn4":
+                        if (txtbxdisply.Text.Length >= 1 && txtbxdisply.Text != "0")
+                        {
+                            makeMultipleDigits(thisButton);
+                        }
+                        else
+                        {
+                            txtbxdisply.Text = btn4.Text;
+                        }
+                        break;
 
-                            break;
-                    }
-                }
-                else
-                {
-                    num.Add(int.Parse(myval));
+                    case "btn5":
+                        if (txtbxdisply.Text.Length >= 1 && txtbxdisply.Text != "0")
+                        {
+                            makeMultipleDigits(thisButton);
+                        }
+                        else
+                        {
+                            txtbxdisply.Text = btn5.Text;
+                        }
+                        break;
 
-                    sum += int.Parse(myval);
+                    case "btn6":
+                        if (txtbxdisply.Text.Length >= 1 && txtbxdisply.Text != "0")
+                        {
+                            makeMultipleDigits(thisButton);
+                        }
+                        else
+                        {
+                            txtbxdisply.Text = btn6.Text;
+                        }
+                        break;
 
-                    txtboxDisplay.Text += sum.ToString();
-                    lblRecord.Text = txtboxDisplay.Text;
-                }   
+                    case "btn7":
+                        if (txtbxdisply.Text.Length >= 1 && txtbxdisply.Text != "0")
+                        {
+                            makeMultipleDigits(thisButton);
+                        }
+                        else
+                        {
+                            txtbxdisply.Text = btn7.Text;
+                        }
+                        break;
 
-                if (String.IsNullOrWhiteSpace(txtboxDisplay.Text))
-                {
-                    switch (thisButton.Name)
-                    {
-                        case "btnOne":
-                            txtboxDisplay.Text = btnOne.Text;
-                            lblRecord.Text = btnOne.Text;
-                            break;
+                    case "btn8":
+                        if (txtbxdisply.Text.Length >= 1 && txtbxdisply.Text != "0")
+                        {
+                            makeMultipleDigits(thisButton);
+                        }
+                        else
+                        {
+                            txtbxdisply.Text = btn8.Text;
+                        }
+                        break;
 
-                        case "btnTwo":
-                            txtboxDisplay.Text = btnTwo.Text;
-                            lblRecord.Text = btnTwo.Text;
-                            break;
-
-                        case "btnThree":
-                            txtboxDisplay.Text = btnThree.Text;
-                            lblRecord.Text = btnThree.Text;
-                            break;
-
-                        case "btnFour":
-                            txtboxDisplay.Text = btnFour.Text;
-                            lblRecord.Text = btnFour.Text;
-                            break;
-
-                        case "btnFive":
-                            txtboxDisplay.Text = btnFive.Text;
-                            lblRecord.Text = btnFive.Text;
-                            break;
-                        case "btnSix":
-                            txtboxDisplay.Text = btnSix.Text;
-                            lblRecord.Text = btnSix.Text;
-                            break;
-
-                        case "btnSeven":
-                            txtboxDisplay.Text = btnSeven.Text;
-                            lblRecord.Text = btnSeven.Text;
-                            break;
-
-                        case "btnEight":
-                            txtboxDisplay.Text = btnEight.Text;
-                            lblRecord.Text = btnEight.Text;
-                            break;
-
-                        case "btnNine":
-                            txtboxDisplay.Text = btnNine.Text;
-                            lblRecord.Text = btnNine.Text;
-                            break;
-
-                        case "btnZero":
-                            txtboxDisplay.Text = btnZero.Text;
-                            lblRecord.Text = btnZero.Text;
-                            break;
-                        case "btnCE":
-                            txtboxDisplay.Clear();
-                            lblRecord.ResetText();
-                            break;
-                            
-                    }
-
+                    case "btn9":
+                        if (txtbxdisply.Text.Length >= 1 && txtbxdisply.Text != "0")
+                        {
+                            makeMultipleDigits(thisButton);
+                        }
+                        else
+                        {
+                            txtbxdisply.Text = btn9.Text;
+                        }
+                        break;
                 }
             }
         }
 
-
-        public int addFormulae(int x, int y)
+        private void zero_Click(object sender, EventArgs e)
         {
-            int opr = x + y;
-
-            return opr;
+            if (txtbxdisply.Text != null && txtbxdisply.Text != "0")
+            {
+                txtbxdisply.Text = txtbxdisply.Text + "0";
+            }
+            else
+            {
+                txtbxdisply.Text = "0";
+            }
         }
 
-        public int minusFormulae(int x, int y)
+        private void refresh_Click(object sender, EventArgs e)
         {
-            int opr = x + y;
-
-            return opr;
+            if (txtbxdisply.Text != null && txtbxdisply.Text != "0")
+            {
+                txtbxdisply.ResetText();
+                txtbxdisply.Text = "0";
+                lblValue.ResetText();
+            }
+            else
+            {
+                txtbxdisply.Text = txtbxdisply.Text;
+            }
         }
 
-        public float divFormulae(int x, int y)
+        private void btnequals_Click(object sender, EventArgs e)
         {
-            float opr = x + y;
+            double num2;
+            double Result;
 
-            return opr;
+            num2 = Convert.ToDouble(txtbxdisply.Text);
+
+            Button pressButton = (Button)sender;
+            List<string> lbl = new List<string>();
+            string val = pressButton.Text;
+            lbl.Add(val);
+            lblValue.Text = lblValue.Text + val;
+
+            switch (opr)
+            {
+                case "+":
+                    Result = (num1 + num2);
+                    txtbxdisply.Text = Convert.ToString(Result);
+                    num1 = Result;
+                    lblValue.Text = lblValue.Text + Result;
+                    break;
+                case "/":
+                    Result = (num1 / num2);
+                    txtbxdisply.Text = Convert.ToString(Result);
+                    num1 = Result;
+                    break;
+                case "*":
+                    Result = (num1 * num2);
+                    txtbxdisply.Text = Convert.ToString(Result);
+                    num1 = Result;
+                    break;
+                case "-":
+                    Result = (num1 - num2);
+                    txtbxdisply.Text = Convert.ToString(Result);
+                    num1 = Result;
+                    break;
+                case "sqr":
+                    Result = Math.Pow(num1,2);
+                    txtbxdisply.Text = Convert.ToString(Result);
+                    num1 = Result;
+                    break;
+                case "sqrt":
+                    Result = Math.Sqrt(num1);
+                    txtbxdisply.Text = Convert.ToString(Result);
+                    num1 = Result;
+                    break;
+                case "x^":
+                    Result = Math.Pow(num1,num2 );
+                    txtbxdisply.Text = Convert.ToString(Result);
+                    num1 = Result;
+                    break;
+            }
         }
 
-        public float mulFormulae(int x, int y)
+        private void btndot_Click(object sender, EventArgs e)
         {
-
-            float opr = (float)x + (float)y;
-
-            return opr;
+            txtbxdisply.Text = txtbxdisply.Text + ".";
         }
     }
 }
