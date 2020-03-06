@@ -18,14 +18,16 @@ namespace ModCal
         private void del_Click(object sender, EventArgs e)
         { //this function is used as backspace to allow the number to the extreme right be deleted from a string of values
             string n = txtbxdisply.Text;
+            
 
             if (n.Length >= 1) //checks the length of the strings in the textbox
             {
-                n = n.Substring(0, n.Length - 1);
+                
+                n = n.Substring(0, n.Length - 1);  
             }
             else
             {
-                n = "0";
+                n = "0";               
             }
 
             txtbxdisply.Text = n; //this displays the string of values left after deleting from the string of values
@@ -46,7 +48,7 @@ namespace ModCal
             List<double> n = new List<double>();
             var decVal = thisButton.Text;
             n.Add(double.Parse(decVal));
-            txtbxdisply.Text = txtbxdisply.Text + decVal;
+            txtbxdisply.Text += decVal;
         }
         public void lblDisplay(object sender)
         {
@@ -54,7 +56,7 @@ namespace ModCal
             List<string> lbl = new List<string>();
             string val = pressButton.Text;
             lbl.Add(val);
-            lblValue.Text = lblValue.Text + val;
+            lblValue.Text += val;
         }
 
         private void operation_Click(object sender, EventArgs e)
@@ -212,7 +214,7 @@ namespace ModCal
         {
             if (txtbxdisply.Text != null && txtbxdisply.Text != "0")
             {
-                txtbxdisply.Text = txtbxdisply.Text + "0";
+                txtbxdisply.Text += "0";
             }
             else
             {
@@ -220,7 +222,7 @@ namespace ModCal
             }
         }
 
-        private void refresh_Click(object sender, EventArgs e)
+        private void Refresh_Click(object sender, EventArgs e)
         {
             if (txtbxdisply.Text != null && txtbxdisply.Text != "0")
             {
@@ -245,7 +247,7 @@ namespace ModCal
             List<string> lbl = new List<string>();
             string val = pressButton.Text;
             lbl.Add(val);
-            lblValue.Text = lblValue.Text + val;
+            lblValue.Text += val;
 
             switch (opr)
             {
@@ -253,44 +255,51 @@ namespace ModCal
                     Result = (num1 + num2);
                     txtbxdisply.Text = Convert.ToString(Result);
                     num1 = Result;
-                    lblValue.Text = lblValue.Text + Result;
+                    lblValue.Text += Result;
                     break;
                 case "/":
                     Result = (num1 / num2);
                     txtbxdisply.Text = Convert.ToString(Result);
                     num1 = Result;
+                    lblValue.Text += Result;
                     break;
                 case "*":
                     Result = (num1 * num2);
                     txtbxdisply.Text = Convert.ToString(Result);
                     num1 = Result;
+                    lblValue.Text += Result;
                     break;
                 case "-":
                     Result = (num1 - num2);
                     txtbxdisply.Text = Convert.ToString(Result);
                     num1 = Result;
+                    lblValue.Text += Result;
                     break;
                 case "sqr":
                     Result = Math.Pow(num1,2);
                     txtbxdisply.Text = Convert.ToString(Result);
                     num1 = Result;
+                    lblValue.Text += Result;
                     break;
                 case "sqrt":
                     Result = Math.Sqrt(num1);
                     txtbxdisply.Text = Convert.ToString(Result);
                     num1 = Result;
+                    lblValue.Text += Result;
                     break;
                 case "x^":
                     Result = Math.Pow(num1,num2 );
                     txtbxdisply.Text = Convert.ToString(Result);
                     num1 = Result;
+                    lblValue.Text += Result;
                     break;
             }
         }
 
         private void btndot_Click(object sender, EventArgs e)
         {
-            txtbxdisply.Text = txtbxdisply.Text + ".";
+            txtbxdisply.Text += ".";
+            lblValue.Text += ".";
         }
     }
 }

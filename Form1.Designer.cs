@@ -272,7 +272,7 @@
             this.btnrefresh.TabIndex = 25;
             this.btnrefresh.Text = "CE";
             this.btnrefresh.UseVisualStyleBackColor = true;
-            this.btnrefresh.Click += new System.EventHandler(this.refresh_Click);
+            this.btnrefresh.Click += new System.EventHandler(this.Refresh_Click);
             // 
             // btnSquare
             // 

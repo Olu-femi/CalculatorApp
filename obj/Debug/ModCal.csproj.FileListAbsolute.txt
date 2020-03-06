@@ -1,9 +1,9 @@
 C:\Users\USER\source\repos\ModCal\bin\Debug\ModCal.exe.config
 C:\Users\USER\source\repos\ModCal\bin\Debug\ModCal.exe
 C:\Users\USER\source\repos\ModCal\bin\Debug\ModCal.pdb
-C:\Users\USER\source\repos\ModCal\obj\Debug\ModCal.csprojAssemblyReference.cache
 C:\Users\USER\source\repos\ModCal\obj\Debug\ModCal.Form1.resources
 C:\Users\USER\source\repos\ModCal\obj\Debug\ModCal.Properties.Resources.resources
 C:\Users\USER\source\repos\ModCal\obj\Debug\ModCal.csproj.GenerateResource.cache
 C:\Users\USER\source\repos\ModCal\obj\Debug\ModCal.exe
 C:\Users\USER\source\repos\ModCal\obj\Debug\ModCal.pdb
+C:\Users\USER\source\repos\ModCal\obj\Debug\ModCal.csprojAssemblyReference.cache
